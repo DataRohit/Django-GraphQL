@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "graphene_django",
     "corsheaders",
     "restapi.apps.RestapiConfig",
+    "books.apps.BooksConfig",
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CORS_ALLOWED_ORIGINS = ["https://*"]
 
 ROOT_URLCONF = "core.urls"
 
