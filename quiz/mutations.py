@@ -9,7 +9,7 @@ class AddCategoryMutation(graphene.Mutation):
     class Arguments:
         name = graphene.String(required=True)
 
-    category = graphene.Field(CategoryType)
+    category = graphene.Field(CategoryNode)
 
     @classmethod
     def mutate(cls, root, info, name):
@@ -22,7 +22,7 @@ class UpdateCategoryMutation(graphene.Mutation):
         id = graphene.ID()
         name = graphene.String(required=True)
 
-    category = graphene.Field(CategoryType)
+    category = graphene.Field(CategoryNode)
 
     @classmethod
     def mutate(cls, root, info, id, name):
@@ -36,7 +36,7 @@ class DeleteCategoryMutation(graphene.Mutation):
     class Arguments:
         id = graphene.ID()
 
-    category = graphene.Field(CategoryType)
+    category = graphene.Field(CategoryNode)
 
     @classmethod
     def mutate(cls, root, info, id):

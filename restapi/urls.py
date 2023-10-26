@@ -1,4 +1,4 @@
 from django.urls import path
 from restapi import views
 
-urlpatterns = [path("", views.RestAPIHome, name="restapi__home")]
+urlpatterns = [path("", views.RestAPIHome, name="restapi__graphql")]

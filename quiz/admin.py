@@ -13,11 +13,14 @@ class CatAdmin(admin.ModelAdmin):
 @admin.register(models.Quizzes)
 class QuizAdmin(admin.ModelAdmin):
     list_display = ["id", "title", "category"]
+    list_filter = ["category"]
 
 
 class AnswerInlineModel(admin.TabularInline):
     model = models.Answer
     fields = ["answer_text", "is_right"]
+    list_display = ["answer_text", "is_right"]
+    list_filter = ["is_right"]
 
 
 @admin.register(models.Question)
@@ -30,6 +33,7 @@ class QuestionAdmin(admin.ModelAdmin):
         "title",
         "quiz",
     ]
+    list_filter = ["quiz__category"]
     inlines = [
         AnswerInlineModel,
     ]
@@ -38,3 +42,4 @@ class QuestionAdmin(admin.ModelAdmin):
 @admin.register(models.Answer)
 class AnswerAdmin(admin.ModelAdmin):
     list_display = ["answer_text", "is_right", "question"]
+    list_filter = ["is_right", "question__quiz__category"]

@@ -46,11 +46,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "graphql_jwt.refresh_token.apps.RefreshTokenConfig",
     "graphene_django",
+    "django_filters",
     "corsheaders",
     "restapi.apps.RestapiConfig",
     "books.apps.BooksConfig",
     "quiz.apps.QuizConfig",
     "users.apps.UsersConfig",
+    "graphql_auth.apps.GraphQLAuthConfig",
 ]
 
 MIDDLEWARE = [
@@ -176,6 +178,7 @@ GRAPHENE = {
 }
 
 AUTHENTICATION_BACKENDS = [
-    "graphql_jwt.backends.JSONWebTokenBackend",
+    # "graphql_jwt.backends.JSONWebTokenBackend",
+    "graphql_auth.backends.GraphQLAuthBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]

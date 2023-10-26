@@ -1,14 +1,13 @@
 import graphene
 from graphene import ObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 from books.types import *
 
 
 class Query(ObjectType):
-    all_books = graphene.List(BooksType)
-
-    def resolve_all_books(root, info):
-        return Books.objects.all()
+    book = graphene.relay.Node.Field(BooksNode)
+    all_books = DjangoFilterConnectionField(BooksNode)
 
 
 schema = graphene.Schema(query=Query)
