@@ -22,4 +22,5 @@ urlpatterns = [
     path("", include("restapi.urls"), name="restapi"),
     path("books/", include("books.urls"), name="books"),
     path("quiz/", include("quiz.urls"), name="quiz"),
+    # path("users/", include("users.urls"), name="users"),
 ]

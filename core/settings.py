@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = "restapi.User"
+AUTH_USER_MODEL = "users.User"
 
 # Application definition
 
@@ -44,11 +44,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "graphql_jwt.refresh_token.apps.RefreshTokenConfig",
     "graphene_django",
     "corsheaders",
     "restapi.apps.RestapiConfig",
     "books.apps.BooksConfig",
     "quiz.apps.QuizConfig",
+    "users.apps.UsersConfig",
 ]
 
 MIDDLEWARE = [
@@ -165,3 +167,15 @@ LOGGING = {
         },
     },
 }
+
+GRAPHENE = {
+    "SCHEMA": "users.schema.schema",
+    "MIDDLEWARE": [
+        "graphql_jwt.middleware.JSONWebTokenMiddleware",
+    ],
+}
+
+AUTHENTICATION_BACKENDS = [
+    "graphql_jwt.backends.JSONWebTokenBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]

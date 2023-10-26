@@ -4,12 +4,14 @@ certifi==2023.7.22
 charset-normalizer==3.3.1
 Django==4.2.6
 django-cors-headers==4.3.0
+django-graphql-jwt==0.4.0
 graphene==3.3
 graphene-django==3.1.5
 graphql-core==3.2.3
 graphql-relay==3.2.0
 idna==3.4
 promise==2.3
+PyJWT==2.8.0
 python-dotenv==1.0.0
 requests==2.31.0
 six==1.16.0
