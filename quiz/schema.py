@@ -1,5 +1,5 @@
 import graphene
-from quiz.types import *
+from quiz.mutations import *
 
 from django.db.models import Q
 
@@ -66,4 +66,10 @@ class Query(graphene.ObjectType):
         return Answer.objects.all()
 
 
-schema = graphene.Schema(query=Query)
+class Mutation(graphene.ObjectType):
+    add_category = AddCategoryMutation.Field()
+    update_category = UpdateCategoryMutation.Field()
+    delete_category = DeleteCategoryMutation.Field()
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
