@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "restapi.apps.RestapiConfig",
     "books.apps.BooksConfig",
+    "quiz.apps.QuizConfig",
 ]
 
 MIDDLEWARE = [
