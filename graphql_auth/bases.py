@@ -2,6 +2,8 @@ import graphene
 
 from django.utils.module_loading import import_string
 
+import graphql_jwt
+
 from graphql_auth.types import ExpectedErrorType
 from graphql_auth.settings import graphql_auth_settings as app_settings
 
@@ -19,6 +21,8 @@ class Output:
 
     success = graphene.Boolean(default_value=True)
     errors = graphene.Field(OutputErrorType)
+    token = graphql_jwt.ObtainJSONWebToken.Field()
+    refresh_token = graphql_jwt.Refresh.Field()
 
 
 class MutationMixin:

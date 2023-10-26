@@ -1,5 +1,3 @@
-from django.http import JsonResponse
-
 import graphene
 
 from quiz.types import *
